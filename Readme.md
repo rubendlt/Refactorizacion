@@ -284,3 +284,28 @@ Podemos seleccionar diferentes elementos para mostrar su menú de refactorizaci�
 
 ----
 <sub>[(*artículo original*)](https://entornos.abrilcode.com/doku.php?id=apuntes:refactorizacion)</sub>
+
+
+# Refactorización de `Main.java`
+
+Este proyecto contiene una versión refactorizada del método `getScore`, que devuelve la puntuación de un partido de tenis.
+
+## Cambios Realizados
+
+1. **Renombrado de variables**:
+  - `m_score1` → `scorePlayer1`
+  - `m_score2` → `scorePlayer2`
+  - Mejora de la legibilidad y significado de los nombres.
+
+2. **Separación de lógica en métodos auxiliares**:
+  - `getEqualScore(int score)`: Maneja los casos en los que ambos jugadores tienen la misma puntuación.
+  - `getAdvantageOrWin(int score1, int score2)`: Maneja los casos de ventaja o victoria.
+  - `getStandardScore(int score1, int score2)`: Devuelve la puntuación estándar en el formato `X-Y`.
+  - `getScoreName(int score)`: Convierte el número de puntos a su nombre en tenis (Love, Fifteen, etc.).
+
+3. **Uso de `switch` con flechas (`->`)**:
+  - Más limpio y moderno, usando el switch expression de Java 14+.
+
+4. **Eliminación de variables innecesarias**:
+  - Se eliminó `tempScore` y el bucle innecesario `for`, que fue reemplazado por una construcción más clara.
+
